@@ -3,8 +3,9 @@ Softmax regression is implemented with notation followed as in the link given be
 http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression/
 """
 import numpy as np
+import sys
+sys.path.insert(0,"..")
 from unpickle import loadMNIST
-import itertools
 
 def one_hot(y, K):
 	"""
@@ -111,7 +112,7 @@ def accuracy(prediction, y):
 	return correct/y.shape[0]
 
 
-train_set, valid_set, test_set = loadMNIST()
+train_set, valid_set, test_set = loadMNIST('../data/mnist.pkl.gz')
 
 # Extract the data and labels from training set
 x_train = np.concatenate((train_set[0], valid_set[0]), axis=0)
